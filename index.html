@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Collaboration</title>
+</head>
+<body>
+    <textarea id="editor" rows="10" cols="30"></textarea>
+    <script>
+        const ws = new WebSocket("ws://localhost:8080/ws");
+
+        ws.onmessage = function(event) {
+            document.getElementById("editor").value = event.data;
+        };
+
+        document.getElementById("editor").addEventListener("input", function() {
+            ws.send(this.value);
+        });
+    </script>
+</body>
+</html>
