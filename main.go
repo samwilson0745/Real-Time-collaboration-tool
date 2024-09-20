@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"real-time-collab/utils"
 
 	"github.com/gorilla/websocket"
 )
@@ -80,6 +81,7 @@ func main() {
 	// Start a goroutine to continuously listen for messages and broadcast them.
 	go handleMessages()
 
+	utils.TestFnc()
 	// Start the HTTP server on port 8080.
 	fmt.Println("Server started on :8080")
 	log.Fatal(http.ListenAndServe(":8080", nil)) // If the server fails to start, log the error.
