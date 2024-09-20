@@ -8,6 +8,7 @@ import (
 	"github.com/gorilla/websocket"
 )
 
+// just for testing
 // Upgrader configures the parameters for upgrading an HTTP connection to a WebSocket connection.
 var upgrader = websocket.Upgrader{
 	ReadBufferSize:  1024, // Buffer size for reading WebSocket messages
